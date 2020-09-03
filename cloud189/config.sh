@@ -8,5 +8,7 @@ send "$env(USERNAME)\r"
 expect "输入密码:"
 send "$env(PASSWORD)\r"
 expect "全部文件 >"
+send "cd $env(REMOTE_DIR)\r"
+expect "全部文件*>"
 send "exit\r"
 expect eof

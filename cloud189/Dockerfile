@@ -3,6 +3,7 @@ FROM ubuntu:latest
 ENV USERNAME=abc
 ENV PASSWORD=123
 ENV TZ=Asia/Shanghai
+ENV REMOTE_DIR=/
 
 # USTC mirror
 RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
@@ -20,7 +21,7 @@ COPY config.sh /
 RUN chmod u+x /upload.sh
 RUN chmod u+x /config.sh
 WORKDIR /app
-RUN git clone --depth=1 https://github.com/Aruelius/cloud189.git \ 
+RUN git clone --depth=1 https://github.com/PvtTony/cloud189.git \ 
 && cd cloud189 \
 && pip3 install -r ./requirements.txt \
 && chmod u+x ./main.py
